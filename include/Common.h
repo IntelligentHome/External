@@ -1,6 +1,6 @@
 #pragma once
 
 enum Status {
-    OK = 0,
-    FAILURE = 1,
+    STATUS_OK = 0,
+    STATUS_FAILURE = 1,
 };
