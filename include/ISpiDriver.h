@@ -4,7 +4,7 @@
 
 namespace spi_driver {
 
-class ISpi {
+class ISpi : public transport::ITransport {
 
 public:
     virtual void Send(uint8_t *psend_buff, uint16_t size) = 0;
