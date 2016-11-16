@@ -20,6 +20,7 @@ public:
     virtual Status SetDefaults(void) = 0;
     virtual Status SetRfChannel(uint8_t channel) = 0;
     virtual Status SetPayloadSize(uint8_t payload_size) = 0;
+    virtual Status SetPayloadSize(Rx rx, uint8_t paylaod_size) = 0;
     virtual Status SetRetries(uint8_t delay, uint8_t retries) = 0;
     virtual Status SetRxAddress(Rx rx, uint8_t address[], uint8_t size) = 0;
     virtual Status SetTxAddress(Tx tx, uint8_t address[], uint8_t size) = 0;
