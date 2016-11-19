@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include "ITransport.h"
 
 namespace spi_driver {
 
