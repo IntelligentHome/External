@@ -13,6 +13,18 @@ enum Tx { T0 = 0,
     TxMax,
 };
 
+union NrfStatusRegister {
+    struct {
+        uint8_t tx_full         : 1,
+                rx_pipe_no      : 3,
+                max_rt          : 1,
+                tx_data_ready   : 1,
+                rx_data_ready   : 1,
+                reserved        : 1;
+    };
+    uint8_t raw_data;
+};
+
 class INrf24 {
 
 public:
@@ -24,6 +36,8 @@ public:
     virtual Status SetRetries(uint8_t delay, uint8_t retries) = 0;
     virtual Status SetRxAddress(Rx rx, uint8_t address[], uint8_t size) = 0;
     virtual Status SetTxAddress(Tx tx, uint8_t address[], uint8_t size) = 0;
+
+    virtual NrfStatusRegister GetStatus(void) = 0;
 };
 
 } /*namespace nrf24_driver*/
