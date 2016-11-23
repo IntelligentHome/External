@@ -5,13 +5,13 @@
 
 namespace nrf24_driver {
 
-enum Rx { R0 = 0, R1, R2, R3, R4, R5,
-    RxMax,
-};
+typedef enum { R0, R1, R2, R3, R4, R5,
+    RxMax
+} Rx;
 
-enum Tx { T0 = 0,
-    TxMax,
-};
+typedef enum { T0,
+    TxMax
+} Tx;
 
 union NrfStatusRegister {
     struct {
@@ -34,8 +34,8 @@ public:
     virtual Status SetPayloadSize(uint8_t payload_size) = 0;
     virtual Status SetPayloadSize(Rx rx, uint8_t paylaod_size) = 0;
     virtual Status SetRetries(uint8_t delay, uint8_t retries) = 0;
-    virtual Status SetRxAddress(Rx rx, uint8_t address[], uint8_t size) = 0;
-    virtual Status SetTxAddress(Tx tx, uint8_t address[], uint8_t size) = 0;
+    virtual Status SetAddress(Rx rx, const uint8_t address[], uint8_t size) = 0;
+    virtual Status SetAddress(Tx tx, const uint8_t address[], uint8_t size) = 0;
 
     virtual NrfStatusRegister GetStatus(void) = 0;
 };
