@@ -37,6 +37,7 @@ public:
     virtual Status SetAddress(Rx rx, const uint8_t address[], uint8_t size) = 0;
     virtual Status SetAddress(Tx tx, const uint8_t address[], uint8_t size) = 0;
     virtual Status SetPayload(const uint8_t payload[], const uint8_t size) = 0;
+    virtual Status SetAutoAck(const uint8_t auto_ack) = 0;
 
     virtual NrfStatusRegister GetStatus(void) = 0;
     virtual Status GetPayload(uint8_t payload[], const uint8_t size) = 0;
