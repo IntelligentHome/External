@@ -42,6 +42,8 @@ public:
     virtual Status StartListening(void) = 0;
     virtual Status StopListening(void) = 0;
 
+    virtual Status SendData(void) = 0;
+
     virtual NrfStatusRegister GetStatus(void) = 0;
     virtual Status GetPayload(uint8_t payload[], const uint8_t size) = 0;
 };
