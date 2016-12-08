@@ -41,6 +41,8 @@ public:
 
     virtual Status StartListening(void) = 0;
     virtual Status StopListening(void) = 0;
+    virtual Status FlushRx(void) = 0;
+    virtual Status FlushTx(void) = 0;
 
     virtual Status SendData(void) = 0;
 
