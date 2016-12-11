@@ -77,6 +77,8 @@ public:
         memset(sent_data_, 0, sent_data_size_);
     }
 
+    virtual uint8_t Reset(void) { return 0; }
+
     virtual void Send(uint8_t send_buff[], uint16_t size) {
 
         for(uint16_t i = 0; i < size; i++) {
