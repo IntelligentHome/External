@@ -28,8 +28,8 @@ public:
         state_      = &mock_state_;
     }
 
-    virtual void SetDirection(GpioDirection gpio_direction) { }
-    virtual void SetPull(GpioPull gpio_pull) { }
+    virtual void SetDirection(gpio_driver::GpioDirection gpio_direction) { }
+    virtual void SetPull(gpio_driver::GpioPull gpio_pull) { }
     virtual void Set(void) { (*set_cnt_)++; }
     virtual void Clear(void) { (*clear_cnt_)++; }
     virtual void Toggle(void) { (*toggle_cnt_)++; }
