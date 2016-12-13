@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-namespace wait {
+namespace iwait {
 
 class IWait {
 
