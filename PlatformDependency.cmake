@@ -1,9 +1,12 @@
-
-if (NOT DEFINED _TARGET_PLATFROM)
+if (NOT DEFINED _TARGET_PLATFORM)
     set (_TARGET_PLATFORM "AVR")
+    message (STATUS "Not defined platform")
 endif()
 
+
 if (${_TARGET_PLATFORM} STREQUAL "AVR")
+    add_definitions (-DTARGET_PLATFORM_AVR=1)
+
     if (NOT DEFINED MCU)
         set (MCU atmega8)
     endif()
@@ -25,6 +28,8 @@ if (${_TARGET_PLATFORM} STREQUAL "AVR")
     set(FLASH_FLAGS "-R .eeprom -R .fuse -R .lock -R .signature")
 
 elseif (${_TARGET_PLATFORM} STREQUAL "RASPBERRYPI")
+    add_definitions (-DTARGET_PLATFORM_RASPBERRYPI=1)
+
     find_program(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++
         /usr/local/linaro/arm-linux-gnueabihf-raspbian/bin/)
     find_program(CMAKE_AR arm-linux-gnueabihf-ar
