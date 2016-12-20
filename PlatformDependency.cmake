@@ -1,6 +1,6 @@
 if (NOT DEFINED _TARGET_PLATFORM)
     set (_TARGET_PLATFORM "AVR")
-    message (STATUS "Not defined platform")
+    message (STATUS "Platform not defined - setting default AVR")
 endif()
 
 
@@ -30,12 +30,17 @@ if (${_TARGET_PLATFORM} STREQUAL "AVR")
 elseif (${_TARGET_PLATFORM} STREQUAL "RASPBERRYPI")
     add_definitions (-DTARGET_PLATFORM_RASPBERRYPI=1)
 
-    find_program(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++
+    find_program(_CXX_COMPILER arm-linux-gnueabihf-g++
         /usr/local/linaro/arm-linux-gnueabihf-raspbian/bin/)
-    find_program(CMAKE_AR arm-linux-gnueabihf-ar
+    set (CMAKE_CXX_COMPILER ${_CXX_COMPILER})
+
+    find_program(_AR arm-linux-gnueabihf-ar
         /usr/local/linaro/arm-linux-gnueabihf-raspbian/bin/)
-    find_program(CMAKE_RANLIB arm-linux-gnueabihf-ranlib
+    set (CMAKE_AR ${_AR})
+
+    find_program(_RANLIB arm-linux-gnueabihf-ranlib
         /usr/local/linaro/arm-linux-gnueabihf-raspbian/bin/)
+    set (CMAKE_RANLIB ${_RANLIB})
 
     set (CMAKE_CXX_FLAGS "-std=c++0x -Wall -Os")
 
