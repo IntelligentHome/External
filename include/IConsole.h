@@ -9,7 +9,7 @@ class IConsole {
 public:
 
     virtual IConsole& print(const char* str) = 0;
-    virtual IConsole& print(const int8_t value) = 0;
+    virtual IConsole& print(const uint8_t value) = 0;
     virtual IConsole& newline(void) = 0;
 };
 

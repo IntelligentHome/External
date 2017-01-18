@@ -43,6 +43,7 @@ public:
     virtual Status StopListening(void) = 0;
     virtual Status FlushRx(void) = 0;
     virtual Status FlushTx(void) = 0;
+    virtual Status ClearIrqFlags(void) = 0;
 
     virtual Status SendData(void) = 0;
 
